@@ -1,0 +1,35 @@
+.Delete_Item_Button{
+    background: hsla(180, 29%, 50%, .17);
+    border-radius: 5px;
+    margin: 12px 12px 12px 0;
+    display: flex;
+    align-items: center;
+}
+.Delete_Item_Button span{
+    padding: 4px 10px;
+    color: hsl(180, 29%, 50%);
+}
+.Delete_Item_Button button{
+    background-image: url('../../assets/icon-remove.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    background-color:hsl(180, 29%, 50%);
+    border: 2px solid hsl(180, 29%, 50%);
+    border-radius: 0px 5px 5px 0px;
+}
+.Delete_Item_Button button:hover{
+        cursor: pointer;
+        background-color: hsl(180, 14%, 20%);
+        border: 2px solid  hsl(180, 14%, 20%);
+}
+@media (max-width: 375px){
+    .FilteredTags{
+        width: 95%;
+    }
+}
+@media (min-width: 600px){
+    .FilteredTags ul{
+        margin: 0 20px;
+    }
+}

@@ -1,0 +1,123 @@
+.JobItem{
+    position: relative;
+    display: flex;
+    width: 90%;
+    margin: 25px auto;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 2px 12px 7px rgba(214,234,235,0.68); 
+    box-shadow: 0px 5px 12px 3px rgba(214,234,235,0.68);
+    background: hsl(180, 52%, 96%);
+}
+.JobItem .Logo img{
+    width: 55px;
+    margin: 0 35px 0 20px;
+}
+.JobItem .Logo_Description{
+    display: flex;
+    align-items: center;
+}
+.JobItem .Logo_Description .Position p{
+    color: hsl(180, 14%, 20%) ;
+}
+.JobItem .Logo_Description .Position p:hover{
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+}
+.JobItem .JobSkills{
+    margin-right: 20px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-basis: 50%;
+}
+.JobItem .JobSkills span{
+    margin: 5px 0px;
+
+}
+.JobItem .JobSkills .span button{
+    color: hsl(180, 8%, 52%) ;
+}
+.JobItem .Logo_Description .JobDescription .CompanyName{
+    color:hsl(180, 29%, 50%) ;
+    margin-right: 10px;
+}
+.JobItem .Logo_Description .JobDescription .New{
+    color: #ffffff;
+    background:hsl(180, 29%, 50%);
+    border-radius: 15px;
+    padding: 6px 8px 3px 8px;
+    margin-right: 15px;
+}
+.JobItem .Logo_Description .JobDescription .Featured{
+    color: #ffffff;
+    background: hsl(180, 14%, 20%);
+    border-radius: 15px;
+    padding: 6px 8px 3px 8px;
+}
+.JobItem .Logo_Description .JobDescription .Job_Contract_Details{
+    display: flex;
+    flex-wrap: wrap;
+}
+.JobItem .Logo_Description .JobDescription .Job_Contract_Details span{
+    color: hsl(180, 8%, 52%);
+    padding: 0 10px;
+    margin-left: -10px;
+}
+.JobItem.filtered{
+    border-left: 4px solid hsl(180, 29%, 50%);
+}
+@media (max-width: 375px){
+    .JobItem{
+        width: 95%;
+        margin-bottom: 45px;
+        margin-top: 45px;
+    }
+}
+@media (max-width: 480px){
+    body{
+        font-size: 14px;
+    }
+    .JobItem .JobSkills{
+        border-top: 1px solid hsl(180, 8%, 52%);
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+}
+@media (min-width: 375px) and (max-width: 500px){
+    .JobItem{
+        margin-top: 45px;
+    }
+}
+@media (max-width: 599px){
+    .Logo_Description .Logo{
+        position: absolute;
+        top: -27px;
+        left: 0px;
+    }
+    .JobItem .Logo_Description{
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .JobItem .JobSkills{
+        flex-basis: 100%;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+}
+@media (min-width: 600px) and (max-width: 640px){
+    .JobItem .JobSkills{
+        flex-basis: 24%;
+        justify-content: flex-end;
+    }
+}
+@media (min-width: 768px) and (max-width: 960px){
+    .JobItem .JobSkills{
+        flex-basis: 37%;
+        justify-content: flex-end;
+    }
+}
