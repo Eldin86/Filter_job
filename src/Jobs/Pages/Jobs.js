@@ -35,6 +35,12 @@ function Jobs() {
         fetchData()
     }, [])
 
+    useEffect(() => {
+        if(filteredItems.length === 0){
+            setTags([])
+        }
+    }, [filteredItems])
+
     const filterHanlder = (e) => {
         //button role
         const val = e.target.dataset.role
@@ -55,14 +61,19 @@ function Jobs() {
             if (o.id !== indexed) {newData.push(o)}
         })
         setData(newData)
-        setTags(prevState => ([...prevState, { tagValue, role: val }]))
+        setTags(prevState => ([...prevState, { tagValue, role: val, itemsLength: filteredItems.lenfth }]))
+
+       
     }
+
     const deleteItemHanlder = (e) => {
         const dataVal = e.target.dataset.role
         const tagValue = e.target.dataset.selecteditem
         const newFilteredItems = []
         const newData = []
         const updatedTags = tags.filter(t => t.tagValue !== tagValue)
+
+        
 
         filteredItems.forEach(obj => {
             if (obj[dataVal].includes(tagValue)) {
@@ -71,11 +82,14 @@ function Jobs() {
                 newData.push(obj)
             }
         })
+
         setFilteredItems([...newData])
         setTags(updatedTags)
         //deleted items from filteredItems place at the bottom of data state after merging into one array
         setData([...data, ...newFilteredItems])
     }
+
+   
     //clear all search results
     const clearSearchHanlder = () => {
         setFilteredItems([])
@@ -90,8 +104,7 @@ function Jobs() {
                 {!data && <Card className='textCenter'>
                     <LoadingSpinner />
                 </Card>}
-                {
-                    tags.length > 0 && <FilteredTags clearSearchHanlder={clearSearchHanlder}>
+                {tags.length > 0 && <FilteredTags clearSearchHanlder={clearSearchHanlder}>
                         {
                             tags.map(t => {
                                 return (
@@ -105,10 +118,10 @@ function Jobs() {
                         }
                     </FilteredTags>
                 }
-                {
-                    filteredItems.map(job => {
+                {filteredItems.map(job => {
                         return (
                             <FilteredItem
+                                itemsLength={filteredItems.itemsLength}
                                 disableTag={disableTag}
                                 onClick={filterHanlder}
                                 isFiltered="filtered"
@@ -128,8 +141,7 @@ function Jobs() {
                         )
                     })
                 }
-                {
-                    data.map(job => {
+                {data.map(job => {
                         return (
                             <Job
                                 key={job.id}
